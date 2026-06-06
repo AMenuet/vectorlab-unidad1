@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VectorLab · Unidad 1: Vectores</title>
+  <meta name="description" content="App interactiva de vectores para Álgebra y Geometría Analítica." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="class-mode">
+  <header class="app-header">
+    <div>
+      <p class="eyebrow">UNSL · FICA · Álgebra y Geometría Analítica</p>
+      <h1>VectorLab</h1>
+      <p class="subtitle">Unidad 1: Vectores · Clase interactiva y estudio guiado</p>
+    </div>
+
+    <div class="header-panel">
+      <div class="mode-switch">
+        <span>Modo de uso</span>
+        <div class="segmented">
+          <button id="modeClass" class="active">Clase</button>
+          <button id="modeStudy">Estudio</button>
+        </div>
+      </div>
+
+      <div class="score-box">
+        <span>Progreso global</span>
+        <strong id="globalScore">0%</strong>
+        <button id="resetProgress" title="Reiniciar progreso">↺</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="welcome-card">
+      <div>
+        <h2>Manual interactivo de la Unidad 1</h2>
+        <p>
+          Cada sección incluye 6 actividades guiadas y una autoevaluación de 8 preguntas.
+          La idea es explorar, responder, verificar y recibir orientación sin ver la resolución completa de entrada.
+        </p>
+      </div>
+
+      <div class="progress-panel">
+        <div><span>Sección actual</span><strong id="currentSectionName">Definición y operaciones</strong></div>
+        <div><span>Actividad actual</span><strong id="currentActivityName">Actividad 1 de 6</strong></div>
+      </div>
+    </section>
+
+    <nav class="section-nav" aria-label="Secciones de la unidad">
+      <button class="section-btn active" data-section="ops">1. Definición y operaciones</button>
+      <button class="section-btn" data-section="dot">2. Producto escalar</button>
+      <button class="section-btn" data-section="cross">3. Producto vectorial</button>
+      <button class="section-btn" data-section="mixed">4. Producto mixto</button>
+    </nav>
+
+    <section class="dashboard">
+      <article>
+        <h3>Progreso por sección</h3>
+        <div class="progress-bars">
+          <div><span>Operaciones</span><meter id="pOps" min="0" max="100" value="0"></meter><b id="pOpsTxt">0%</b></div>
+          <div><span>Producto escalar</span><meter id="pDot" min="0" max="100" value="0"></meter><b id="pDotTxt">0%</b></div>
+          <div><span>Producto vectorial</span><meter id="pCross" min="0" max="100" value="0"></meter><b id="pCrossTxt">0%</b></div>
+          <div><span>Producto mixto</span><meter id="pMixed" min="0" max="100" value="0"></meter><b id="pMixedTxt">0%</b></div>
+        </div>
+      </article>
+      <article>
+        <h3>Diagnóstico automático</h3>
+        <p id="diagnosticText">Comenzá resolviendo actividades. La app indicará qué temas conviene revisar.</p>
+      </article>
+    </section>
+
+    <!-- OPERACIONES -->
+    <section id="ops" class="section active" data-section-title="Definición y operaciones">
+      <div class="section-head">
+        <div>
+          <h2>1. Definición y operaciones con vectores</h2>
+          <p>Vector, componentes, módulo, suma, producto por escalar, descomposición canónica y paralelismo.</p>
+        </div>
+        <span class="tag">6 actividades + 8 preguntas</span>
+      </div>
+
+      <div class="activity-shell">
+        <aside class="activity-list" id="opsList"></aside>
+        <article class="activity-panel">
+          <div id="opsActivities"></div>
+          <div id="opsQuiz" class="quiz-panel"></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- PRODUCTO ESCALAR -->
+    <section id="dot" class="section" data-section-title="Producto escalar">
+      <div class="section-head">
+        <div>
+          <h2>2. Producto escalar</h2>
+          <p>Signo, ángulo, ortogonalidad, proyección y aplicaciones a trabajo o potencia.</p>
+        </div>
+        <span class="tag">6 actividades + 8 preguntas</span>
+      </div>
+
+      <div class="activity-shell">
+        <aside class="activity-list" id="dotList"></aside>
+        <article class="activity-panel">
+          <div id="dotActivities"></div>
+          <div id="dotQuiz" class="quiz-panel"></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- PRODUCTO VECTORIAL -->
+    <section id="cross" class="section" data-section-title="Producto vectorial">
+      <div class="section-head">
+        <div>
+          <h2>3. Producto vectorial</h2>
+          <p>Vector perpendicular, sentido, determinante, área, ortogonalidad y distancia punto-recta.</p>
+        </div>
+        <span class="tag">6 actividades + 8 preguntas</span>
+      </div>
+
+      <div class="activity-shell">
+        <aside class="activity-list" id="crossList"></aside>
+        <article class="activity-panel">
+          <div id="crossActivities"></div>
+          <div id="crossQuiz" class="quiz-panel"></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- PRODUCTO MIXTO -->
+    <section id="mixed" class="section" data-section-title="Producto mixto">
+      <div class="section-head">
+        <div>
+          <h2>4. Producto mixto</h2>
+          <p>Estructura, cálculo, volumen, signo, regla cíclica y coplanaridad.</p>
+        </div>
+        <span class="tag">6 actividades + 8 preguntas</span>
+      </div>
+
+      <div class="activity-shell">
+        <aside class="activity-list" id="mixedList"></aside>
+        <article class="activity-panel">
+          <div id="mixedActivities"></div>
+          <div id="mixedQuiz" class="quiz-panel"></div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>VectorLab · Unidad 1: Vectores</span>
+    <span>Versión 2 · 4 secciones · 24 actividades · 32 preguntas</span>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
