@@ -700,37 +700,3 @@ body.class-mode .theory-panel .theory-header p::after {
   font-family: "Cambria Math", Georgia, serif;
   font-size: 1.04em;
 }
-
-
-/* Notación vectorial estable: vectores en negrita e itálica */
-.v {
-  font-family: "Cambria Math", Georgia, serif !important;
-  font-style: italic !important;
-  font-weight: 900 !important;
-  color: #062f63 !important;
-}
-
-.formula .v,
-.theory-content .v,
-.answer-card .v,
-.quiz-item .v,
-.feedback .v,
-.solution .v {
-  font-weight: 900 !important;
-  color: #062f63 !important;
-}
-
-.vector-convention {
-  background: #eff6ff;
-  border: 1px solid #bfdbfe;
-  color: #083b7a;
-  border-radius: 14px;
-  padding: .75rem .9rem;
-  margin: .75rem 0 1rem;
-  font-weight: 700;
-}
-
-.mathline {
-  font-family: "Cambria Math", Georgia, serif;
-  font-size: 1.04em;
-}

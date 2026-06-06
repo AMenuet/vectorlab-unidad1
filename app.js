@@ -555,62 +555,9 @@ function vectorMarkup(text){
   return s;
 }
 
-
-function isVectorBoundary(ch){
-  if(!ch) return true;
-  return !(/[A-Za-zÁÉÍÓÚáéíóúÑñ0-9_₀₁₂₃₄₅₆₇₈₉]/.test(ch));
-}
-
-function shouldVectorizeSymbol(sym){
-  // No marcamos d porque en la app aparece como distancia escalar.
-  // i, j, k se marcan cuando aparecen solos como versores.
-  return ["u","v","w","F","r","M","i","j","k"].includes(sym);
-}
-
-function vectorizePlainTextNode(node){
-  const text = node.nodeValue;
-  if(!text || !/[uvwFrMijk]/.test(text)) return;
-
-  const frag = document.createDocumentFragment();
-  let changed = false;
-
-  for(let pos = 0; pos < text.length; pos++){
-    const ch = text[pos];
-    const prev = text[pos-1] || "";
-    const next = text[pos+1] || "";
-
-    if(shouldVectorizeSymbol(ch) && isVectorBoundary(prev) && isVectorBoundary(next)){
-      const span = document.createElement("span");
-      span.className = "v";
-      span.textContent = ch;
-      frag.appendChild(span);
-      changed = true;
-    } else {
-      frag.appendChild(document.createTextNode(ch));
-    }
-  }
-
-  if(changed){
-    node.parentNode.replaceChild(frag, node);
-  }
-}
-
 function applyVectorNotation(root=document.body){
-  if(!root) return;
-  const skipTags = new Set(["SCRIPT","STYLE","TEXTAREA","INPUT","SELECT","OPTION","CANVAS","SVG"]);
-  const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
-    acceptNode(node){
-      const parent = node.parentElement;
-      if(!parent) return NodeFilter.FILTER_REJECT;
-      if(skipTags.has(parent.tagName)) return NodeFilter.FILTER_REJECT;
-      if(parent.classList && parent.classList.contains("v")) return NodeFilter.FILTER_REJECT;
-      return NodeFilter.FILTER_ACCEPT;
-    }
-  });
-
-  const nodes = [];
-  while(walker.nextNode()) nodes.push(walker.currentNode);
-  nodes.forEach(vectorizePlainTextNode);
+  // Versión 7: se vectorizan explícitamente consignas, pistas, soluciones y quiz con vectorMarkup().
+  return;
 }
 
 function init(){

@@ -37,8 +37,3 @@ Se marcaron explícitamente los vectores en las fórmulas principales de teoría
 ## Novedad versión 7
 
 Se reforzó la notación vectorial también en consignas, ejercicios, pistas, soluciones y autoevaluaciones. Se evita marcar como vector a la distancia escalar d.
-
-
-## Ajuste V7-Negritas
-
-Se agregó notación vectorial automática: los símbolos vectoriales u, v, w, F, r, M y los versores i, j, k aparecen en negrita e itálica en teoría, ejercicios y autoevaluaciones. Las componentes como u₁, u₂, v₁, v₂ no se modifican.
