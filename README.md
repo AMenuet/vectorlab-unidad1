@@ -1,4 +1,4 @@
-# VectorLab · Unidad 1: Vectores · Versión 7
+# VectorLab · Unidad 1: Vectores · Versión 8
 
 Estructura:
 - 4 secciones principales.
@@ -37,3 +37,8 @@ Se marcaron explícitamente los vectores en las fórmulas principales de teoría
 ## Novedad versión 7
 
 Se reforzó la notación vectorial también en consignas, ejercicios, pistas, soluciones y autoevaluaciones. Se evita marcar como vector a la distancia escalar d.
+
+
+## Novedad versión 8
+
+Se corrigieron las gráficas principales: proyección/ortogonalidad con ejes con flecha, arco angular correcto y perpendicular a la recta soporte de u; producto vectorial con arco limpio entre u y v; y producto mixto con una representación más clara del volumen del paralelepípedo.
