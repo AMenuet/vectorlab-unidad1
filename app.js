@@ -357,11 +357,11 @@ function crossSvg(){
     <line x1="210" y1="275" x2="560" y2="255" stroke="#111" stroke-width="4" marker-end="url(#arrBlack)"/>
     <line x1="210" y1="275" x2="345" y2="155" stroke="#334155" stroke-width="4" marker-end="url(#arrBlack)"/>
     <line x1="210" y1="275" x2="210" y2="70" stroke="#0b5cad" stroke-width="5" marker-end="url(#arrBlue)"/>
-    <path d="M 286 271 A 76 76 0 0 0 267 224" fill="none" stroke="#111" stroke-width="2.5"/>
-    <text x="515" y="292" class="svg-label">u</text>
-    <text x="352" y="160" class="svg-label">v</text>
+    <path d="M270 272 Q280 220 320 178" fill="none" stroke="#111" stroke-width="2"/>
+    <text x="520" y="290" class="svg-label">u</text>
+    <text x="360" y="160" class="svg-label">v</text>
     <text x="235" y="95" class="svg-label blue">w = u × v</text>
-    <text x="282" y="242" class="svg-small">θ</text>
+    <text x="300" y="235" class="svg-small">θ</text>
   </svg>`;
 }
 
@@ -380,29 +380,22 @@ function areaSvg(){
 }
 
 function mixedSvg(){
-  return `<svg viewBox="0 0 760 420" class="svg-visual" role="img" aria-label="Producto mixto y volumen del paralelepípedo">
+  return `<svg viewBox="0 0 760 420" class="svg-visual" role="img" aria-label="Producto mixto">
     <defs>
-      <marker id="arrMixBlack" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#111"></path></marker>
-      <marker id="arrMixGray" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#334155"></path></marker>
-      <marker id="arrMixGreen" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#0f766e"></path></marker>
+      <marker id="arrM" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#111"></path></marker>
+      <marker id="arrG" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#0f766e"></path></marker>
     </defs>
-    <polygon points="140,300 430,300 530,210 240,210" fill="#eef2ff" stroke="#64748b" stroke-width="2"/>
-    <polygon points="180,170 470,170 570,80 280,80" fill="#e2e8f0" stroke="#64748b" stroke-width="2"/>
-    <polygon points="140,300 180,170 470,170 430,300" fill="#f8fafc" stroke="#94a3b8" stroke-width="2"/>
-    <polygon points="240,210 280,80 570,80 530,210" fill="#dbeafe" stroke="#94a3b8" stroke-width="2"/>
-    <polygon points="430,300 470,170 570,80 530,210" fill="#dbeafe" stroke="#94a3b8" stroke-width="2"/>
-    <line x1="140" y1="300" x2="430" y2="300" stroke="#111" stroke-width="4" marker-end="url(#arrMixBlack)"/>
-    <line x1="140" y1="300" x2="240" y2="210" stroke="#334155" stroke-width="4" marker-end="url(#arrMixGray)"/>
-    <line x1="140" y1="300" x2="180" y2="170" stroke="#0f766e" stroke-width="4" marker-end="url(#arrMixGreen)"/>
-    <line x1="180" y1="170" x2="205" y2="245" stroke="#94a3b8" stroke-dasharray="8 7" stroke-width="2.5"/>
-    <line x1="205" y1="245" x2="228" y2="235" stroke="#94a3b8" stroke-width="2"/>
-    <line x1="228" y1="235" x2="220" y2="216" stroke="#94a3b8" stroke-width="2"/>
-    <text x="315" y="325" class="svg-label">v</text>
-    <text x="188" y="235" class="svg-label">w</text>
-    <text x="150" y="210" class="svg-label green">u</text>
-    <text x="214" y="262" class="svg-small">h</text>
-    <text x="285" y="62" class="svg-label blue">V = |u · (v × w)|</text>
-    <text x="292" y="102" class="svg-small">base = ||v × w||</text>
+    <polygon points="170,310 500,280 600,160 270,190" fill="#f1f5f9" stroke="#64748b" stroke-width="2"/>
+    <polygon points="270,190 600,160 650,65 320,95" fill="#e2e8f0" stroke="#64748b" stroke-width="2"/>
+    <polygon points="500,280 600,160 650,65 550,185" fill="#dbeafe" stroke="#64748b" stroke-width="2"/>
+    <line x1="170" y1="310" x2="500" y2="280" stroke="#111" stroke-width="4" marker-end="url(#arrM)"/>
+    <line x1="170" y1="310" x2="270" y2="190" stroke="#334155" stroke-width="4" marker-end="url(#arrM)"/>
+    <line x1="170" y1="310" x2="220" y2="215" stroke="#0f766e" stroke-width="4" marker-end="url(#arrG)"/>
+    <line x1="220" y1="215" x2="550" y2="185" stroke="#94a3b8" stroke-dasharray="8 7" stroke-width="2"/>
+    <text x="430" y="315" class="svg-label">u</text>
+    <text x="280" y="190" class="svg-label">v</text>
+    <text x="225" y="235" class="svg-label green">w</text>
+    <text x="300" y="90" class="svg-label blue">V = |u · (v × w)|</text>
   </svg>`;
 }
 
@@ -444,91 +437,23 @@ function drawCenteredGrid(canvas, ctx){
   ctx.clearRect(0,0,canvas.width,canvas.height);
   ctx.fillStyle="#fbfdff"; ctx.fillRect(0,0,canvas.width,canvas.height);
   ctx.strokeStyle="#e7eef8"; ctx.lineWidth=1;
-
   for(let x=-6;x<=6;x++){
-    const p1=canvasPoint(canvas,{x:x,y:-6}), p2=canvasPoint(canvas,{x:x,y:6});
+    const p1=canvasPoint(canvas,{x,y:-6}), p2=canvasPoint(canvas,{x,y:6});
     ctx.beginPath(); ctx.moveTo(p1.x,p1.y); ctx.lineTo(p2.x,p2.y); ctx.stroke();
   }
   for(let y=-6;y<=6;y++){
-    const p1=canvasPoint(canvas,{x:-6,y:y}), p2=canvasPoint(canvas,{x:6,y:y});
+    const p1=canvasPoint(canvas,{x:-6,y}), p2=canvasPoint(canvas,{x:6,y});
     ctx.beginPath(); ctx.moveTo(p1.x,p1.y); ctx.lineTo(p2.x,p2.y); ctx.stroke();
   }
-
-  const xA=canvasPoint(canvas,{x:-6,y:0}), xB=canvasPoint(canvas,{x:6,y:0});
-  const yA=canvasPoint(canvas,{x:0,y:-6}), yB=canvasPoint(canvas,{x:0,y:6});
-
   ctx.strokeStyle="#111"; ctx.lineWidth=2;
-  ctx.beginPath(); ctx.moveTo(xA.x,xA.y); ctx.lineTo(xB.x,xB.y); ctx.stroke();
-  ctx.beginPath(); ctx.moveTo(yA.x,yA.y); ctx.lineTo(yB.x,yB.y); ctx.stroke();
-
-  // flechas positivas de los ejes
-  ctx.fillStyle="#111";
-  const ah=10;
-  ctx.beginPath();
-  ctx.moveTo(xB.x, xB.y);
-  ctx.lineTo(xB.x-ah, xB.y-4);
-  ctx.lineTo(xB.x-ah, xB.y+4);
-  ctx.closePath(); ctx.fill();
-
-  ctx.beginPath();
-  ctx.moveTo(yB.x, yB.y);
-  ctx.lineTo(yB.x-4, yB.y+ah);
-  ctx.lineTo(yB.x+4, yB.y+ah);
-  ctx.closePath(); ctx.fill();
-
-  ctx.font="16px Georgia";
-  ctx.fillText("x", xB.x+8, xB.y-8);
-  ctx.fillText("y", yB.x+8, yB.y-10);
-  const O=canvasPoint(canvas,{x:0,y:0});
-  ctx.fillText("0", O.x+6, O.y+16);
-}
-
-function drawSupportLine(ctx, canvas, u){
-  const m = Math.hypot(u.x,u.y);
-  if(m < 1e-9) return;
-  const dir = {x:u.x/m, y:u.y/m};
-  const p1 = {x:-8*dir.x, y:-8*dir.y};
-  const p2 = {x: 8*dir.x, y: 8*dir.y};
-  const A=canvasPoint(canvas,p1), B=canvasPoint(canvas,p2);
-  ctx.strokeStyle="#9ca3af"; ctx.lineWidth=1.5; ctx.setLineDash([5,5]);
+  let A=canvasPoint(canvas,{x:-6,y:0}), B=canvasPoint(canvas,{x:6,y:0});
   ctx.beginPath(); ctx.moveTo(A.x,A.y); ctx.lineTo(B.x,B.y); ctx.stroke();
-  ctx.setLineDash([]);
-}
-
-function drawAngleArc(ctx, canvas, u, v, radius=58){
-  const O = canvasPoint(canvas,{x:0,y:0});
-  const a1 = Math.atan2(u.y, u.x);
-  const a2 = Math.atan2(v.y, v.x);
-  let diff = a2 - a1;
-  while(diff <= -Math.PI) diff += 2*Math.PI;
-  while(diff > Math.PI) diff -= 2*Math.PI;
-
-  const start = -a1;
-  const end = -(a1 + diff);
-  const anticlockwise = diff > 0;
-
-  ctx.strokeStyle="#b45309"; ctx.lineWidth=2.5;
-  ctx.beginPath();
-  ctx.arc(O.x, O.y, radius, start, end, anticlockwise);
-  ctx.stroke();
-
-  const mid = a1 + diff/2;
-  ctx.fillStyle="#b45309"; ctx.font="18px Georgia";
-  ctx.fillText("θ", O.x + (radius+15)*Math.cos(mid), O.y - (radius+10)*Math.sin(mid));
-}
-
-function drawRightAngleMarker(ctx, canvas, foot, u, size=12){
-  const m=Math.hypot(u.x,u.y);
-  if(m < 1e-9) return;
-  const e1={x:u.x/m, y:u.y/m};
-  const e2={x:-e1.y, y:e1.x};
-  const s=size/10;
-  const pA = {x:foot.x + e1.x*s, y:foot.y + e1.y*s};
-  const pB = {x:pA.x + e2.x*s, y:pA.y + e2.y*s};
-  const pC = {x:foot.x + e2.x*s, y:foot.y + e2.y*s};
-  const A=canvasPoint(canvas,pA), B=canvasPoint(canvas,pB), C=canvasPoint(canvas,pC);
-  ctx.strokeStyle="#777"; ctx.lineWidth=2;
-  ctx.beginPath(); ctx.moveTo(A.x,A.y); ctx.lineTo(B.x,B.y); ctx.lineTo(C.x,C.y); ctx.stroke();
+  A=canvasPoint(canvas,{x:0,y:-6}); B=canvasPoint(canvas,{x:0,y:6});
+  ctx.beginPath(); ctx.moveTo(A.x,A.y); ctx.lineTo(B.x,B.y); ctx.stroke();
+  ctx.fillStyle="#111"; ctx.font="16px Georgia";
+  ctx.fillText("x", canvasPoint(canvas,{x:5.8,y:0}).x, canvasPoint(canvas,{x:5.8,y:0}).y-8);
+  ctx.fillText("y", canvasPoint(canvas,{x:0,y:5.8}).x+8, canvasPoint(canvas,{x:0,y:5.8}).y);
+  ctx.fillText("0", canvasPoint(canvas,{x:0,y:0}).x+5, canvasPoint(canvas,{x:0,y:0}).y+16);
 }
 function drawOpsCanvas(canvas){
   const ctx = canvas.getContext("2d");
@@ -550,24 +475,19 @@ function drawDotCanvas(canvas){
   const ctx = canvas.getContext("2d");
   drawCenteredGrid(canvas,ctx);
   const O={x:0,y:0}, u=state.u, v=state.v, proj=projection(v,u);
-
-  drawSupportLine(ctx,canvas,u);
   drawArrow(ctx,canvas,O,u,"#111",3,"u");
   drawArrow(ctx,canvas,O,v,"#334155",3,"v");
   drawArrow(ctx,canvas,O,proj,"#0b5cad",5,"proyᵤ(v)");
-
-  const Vp=canvasPoint(canvas,v), Pp=canvasPoint(canvas,proj);
+  const V=canvasPoint(canvas,v), P=canvasPoint(canvas,proj);
   ctx.strokeStyle="#777"; ctx.setLineDash([6,6]); ctx.lineWidth=2;
-  ctx.beginPath(); ctx.moveTo(Vp.x,Vp.y); ctx.lineTo(Pp.x,Pp.y); ctx.stroke();
-  ctx.setLineDash([]);
-
-  drawRightAngleMarker(ctx,canvas,proj,u,12);
-  drawAngleArc(ctx,canvas,u,v,58);
-
+  ctx.beginPath(); ctx.moveTo(V.x,V.y); ctx.lineTo(P.x,P.y); ctx.stroke(); ctx.setLineDash([]);
+  const C=canvasPoint(canvas,O);
+  ctx.strokeStyle="#b45309"; ctx.lineWidth=2;
+  const a1=Math.atan2(-u.y,u.x), a2=Math.atan2(-v.y,v.x);
+  ctx.beginPath(); ctx.arc(C.x,C.y,55,a1,a2,false); ctx.stroke();
+  ctx.fillStyle="#b45309"; ctx.font="18px Georgia"; ctx.fillText("θ",C.x+55,C.y-35);
   [u,v].forEach((p,i)=>{
-    const P=canvasPoint(canvas,p);
-    ctx.fillStyle=i?"#334155":"#111";
-    ctx.beginPath(); ctx.arc(P.x,P.y,8,0,Math.PI*2); ctx.fill();
+    const P=canvasPoint(canvas,p); ctx.fillStyle=i?"#334155":"#111"; ctx.beginPath(); ctx.arc(P.x,P.y,8,0,Math.PI*2); ctx.fill();
   });
 
   const liveDot=$("liveDot"), liveAngle=$("liveAngle"), liveProj=$("liveProj");
@@ -618,25 +538,25 @@ function setupCanvasDragging(){
 }
 
 
-function escapeHtml(text){
-  return String(text ?? "")
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#039;");
-}
-
 function vectorMarkup(text){
-  let s = escapeHtml(text);
-  // Vectorizamos símbolos sueltos. No vectorizamos d porque se usa como distancia escalar.
+  if(text === undefined || text === null) return "";
+  let s = String(text);
+
+  // No tocar contenido HTML ya marcado como span.v
+  // Vectorizamos símbolos sueltos: u, v, w, F, r, M.
+  // No vectorizamos d porque en la app también se usa mucho como distancia escalar.
   const vectorTokens = ["u","v","w","F","r","M"];
   const pattern = new RegExp(`(^|[^A-Za-zÁÉÍÓÚáéíóúÑñ0-9_₀₁₂₃₄₅₆₇₈₉])(${vectorTokens.join("|")})(?![A-Za-zÁÉÍÓÚáéíóúÑñ0-9_₀₁₂₃₄₅₆₇₈₉])`, "g");
-  return s.replace(pattern, (match, prefix, sym) => `${prefix}<span class="v">${sym}</span>`);
+
+  s = s.replace(pattern, (match, prefix, sym) => {
+    return `${prefix}<span class="v">${sym}</span>`;
+  });
+
+  return s;
 }
 
 function applyVectorNotation(root=document.body){
-  // La teoría usa marcas explícitas. Las consignas, pistas, soluciones y quiz usan vectorMarkup().
+  // Versión 7: se vectorizan explícitamente consignas, pistas, soluciones y quiz con vectorMarkup().
   return;
 }
 

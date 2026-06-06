@@ -1,4 +1,4 @@
-# VectorLab · Unidad 1: Vectores · Versión 10
+# VectorLab · Unidad 1: Vectores · Versión 7
 
 Estructura:
 - 4 secciones principales.
@@ -34,6 +34,6 @@ Se reemplazó la flecha superior por notación vectorial en negrita e itálica p
 Se marcaron explícitamente los vectores en las fórmulas principales de teoría, usando negrita e itálica. Esto evita depender de una conversión automática de JavaScript.
 
 
-## Novedad versión 10
+## Novedad versión 7
 
-Reconstruida desde una base estable. Agrega notación vectorial segura en ejercicios y autoevaluaciones, y corrige las gráficas de proyección, producto vectorial y producto mixto sin modificar data.js.
+Se reforzó la notación vectorial también en consignas, ejercicios, pistas, soluciones y autoevaluaciones. Se evita marcar como vector a la distancia escalar d.

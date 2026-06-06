@@ -679,7 +679,7 @@ body.class-mode .theory-panel .theory-header p::after {
 }
 
 
-/* Versión 10: notación vectorial segura en ejercicios */
+/* Versión 7: refuerzo visual para vectores en teoría, actividades y autoevaluaciones */
 .v {
   font-family: "Cambria Math", Georgia, serif !important;
   font-style: italic !important;
@@ -687,15 +687,16 @@ body.class-mode .theory-panel .theory-header p::after {
   color: #062f63 !important;
 }
 
-.mathline {
-  font-family: "Cambria Math", Georgia, serif;
-  font-size: 1.04em;
-}
-
 .answer-card .v,
 .quiz-item .v,
 .feedback .v,
-.solution .v {
+.solution .v,
+.theory-content .v {
   font-weight: 900 !important;
   color: #062f63 !important;
+}
+
+.mathline {
+  font-family: "Cambria Math", Georgia, serif;
+  font-size: 1.04em;
 }
