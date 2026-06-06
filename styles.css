@@ -518,3 +518,70 @@ footer {
   .activity-list { position: static; }
   .progress-bars div { grid-template-columns: 1fr; }
 }
+
+
+.theory-panel {
+  display: none;
+}
+
+.theory-panel.active {
+  display: block;
+}
+
+.theory-header {
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 1rem;
+  background: linear-gradient(180deg, #f8fbff, #eef6ff);
+  margin-bottom: 1rem;
+}
+
+.theory-header h2 {
+  color: var(--blue);
+  margin: .6rem 0 .35rem;
+}
+
+.theory-header p {
+  color: var(--muted);
+  margin: 0;
+}
+
+.theory-content {
+  display: grid;
+  gap: .85rem;
+  line-height: 1.62;
+  font-size: 1.02rem;
+}
+
+.theory-content h3 {
+  color: var(--blue);
+  margin: .2rem 0 .1rem;
+  font-size: 1.55rem;
+}
+
+.theory-content h4 {
+  color: var(--blue);
+  margin: .9rem 0 .15rem;
+  font-size: 1.12rem;
+}
+
+.theory-content p {
+  margin: .15rem 0;
+}
+
+.theory-content ul {
+  margin: .25rem 0 .25rem 1.2rem;
+  padding: 0;
+}
+
+.theory-content li {
+  margin: .35rem 0;
+}
+
+body.class-mode .theory-content {
+  font-size: 1.08rem;
+}
+
+body.class-mode .theory-panel .theory-header p::after {
+  content: " En modo clase puede usarse como síntesis proyectable.";
+}

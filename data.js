@@ -2,6 +2,40 @@ const SECTIONS = {
   ops: {
     title: "Definición y operaciones",
     short: "Operaciones",
+    theory: `
+      <h3>Teoría para estudio · Definición y operaciones</h3>
+      <p>Un vector puede pensarse como un segmento orientado. Queda determinado por tres elementos: <strong>módulo</strong>, <strong>dirección</strong> y <strong>sentido</strong>. En el registro geométrico se representa mediante una flecha: la longitud indica el módulo, la recta de acción indica la dirección y la punta de la flecha indica el sentido.</p>
+
+      <h4>Vector libre, equipolente y ligado</h4>
+      <p>Un <strong>vector libre</strong> queda definido por su módulo, dirección y sentido, pero no por su punto de aplicación. Por eso puede trasladarse paralelamente sin cambiar su identidad. Dos vectores son <strong>equipolentes</strong> cuando tienen el mismo módulo, dirección y sentido, aunque estén ubicados en distintos lugares del plano o del espacio. En cambio, un <strong>vector fijo o ligado</strong> tiene un punto de aplicación determinado; en ese caso no puede trasladarse sin modificar su significado.</p>
+
+      <h4>Suma de vectores</h4>
+      <p>Geométricamente, la suma puede construirse mediante la regla del triángulo o la regla del paralelogramo. Algebraicamente, si los vectores están expresados por componentes, la suma se realiza componente a componente:</p>
+      <div class="formula">u + v = (u₁ + v₁, u₂ + v₂)</div>
+      <div class="formula">u + v = (u₁ + v₁, u₂ + v₂, ..., uₙ + vₙ)</div>
+
+      <h4>Multiplicación por un escalar</h4>
+      <p>Si c es un escalar y u es un vector, entonces cu es un vector cuyo módulo es |c|·||u||. Si c&gt;0 conserva el sentido de u; si c&lt;0 conserva la dirección pero invierte el sentido; si c=0 se obtiene el vector nulo.</p>
+      <div class="formula">cu = (cu₁, cu₂, ..., cuₙ)</div>
+      <div class="formula">||cu|| = |c| · ||u||</div>
+
+      <h4>Módulo y vector unitario</h4>
+      <p>El módulo o longitud de un vector se calcula a partir de sus componentes:</p>
+      <div class="formula">||u|| = √(u₁² + u₂²)</div>
+      <div class="formula">||u|| = √(u₁² + u₂² + ... + uₙ²)</div>
+      <p>Si u≠0, el vector unitario en la dirección de u se obtiene dividiendo por su módulo:</p>
+      <div class="formula">û = u / ||u||</div>
+
+      <h4>Propiedades y descomposición canónica</h4>
+      <p>La suma de vectores cumple propiedades como conmutatividad, asociatividad, existencia de neutro e inverso aditivo. La multiplicación por escalares cumple propiedades distributivas y de compatibilidad con el producto de escalares.</p>
+      <p>En R³, todo vector puede escribirse como combinación de los versores fundamentales i, j y k:</p>
+      <div class="formula">u = (u₁,u₂,u₃) = u₁i + u₂j + u₃k</div>
+
+      <h4>Vectores paralelos</h4>
+      <p>Dos vectores son paralelos cuando sus componentes son proporcionales. En R³, para vectores no nulos:</p>
+      <div class="formula">u₁/v₁ = u₂/v₂ = u₃/v₃</div>
+      <p>Si la constante de proporcionalidad es positiva tienen el mismo sentido; si es negativa, sentidos opuestos.</p>
+    `,
     activities: [
       {
         title: "Actividad 1 de 6 · Reconocer magnitudes vectoriales",
@@ -73,6 +107,56 @@ const SECTIONS = {
   dot: {
     title: "Producto escalar",
     short: "Escalar",
+    theory: `
+      <h3>Teoría para estudio · Producto escalar</h3>
+      <p>El producto escalar permite relacionar dos vectores con el ángulo que forman. Es una operación que toma dos vectores y devuelve un número real.</p>
+
+      <h4>Definición geométrica</h4>
+      <p>Si u y v son vectores no nulos y θ es el ángulo entre ellos, se define:</p>
+      <div class="formula">u · v = ||u|| ||v|| cos(θ)</div>
+      <p>Esta definición no depende del sistema de coordenadas; por eso se dice que es una definición intrínseca.</p>
+
+      <h4>Interpretación del signo</h4>
+      <ul>
+        <li>Si el ángulo es agudo, cos(θ)&gt;0 y entonces u·v&gt;0.</li>
+        <li>Si el ángulo es recto, cos(θ)=0 y entonces u·v=0.</li>
+        <li>Si el ángulo es obtuso, cos(θ)&lt;0 y entonces u·v&lt;0.</li>
+      </ul>
+
+      <h4>Ortogonalidad</h4>
+      <p>Dos vectores son ortogonales cuando el ángulo entre ellos es de 90°. A partir de la definición geométrica:</p>
+      <div class="formula">u ⟂ v ⇔ u · v = 0</div>
+
+      <h4>Módulo y ángulo</h4>
+      <p>El producto escalar permite expresar el módulo de un vector como:</p>
+      <div class="formula">||u|| = √(u · u)</div>
+      <p>También permite calcular el ángulo entre dos vectores no nulos:</p>
+      <div class="formula">cos(θ) = (u · v) / (||u|| ||v||)</div>
+
+      <h4>Producto escalar por componentes</h4>
+      <p>En un sistema cartesiano ortogonal, el producto escalar puede calcularse sumando los productos de componentes homónimas:</p>
+      <div class="formula">u · v = u₁v₁ + u₂v₂</div>
+      <div class="formula">u · v = u₁v₁ + u₂v₂ + u₃v₃</div>
+      <div class="formula">u · v = Σ uᵢvᵢ</div>
+
+      <h4>Propiedades</h4>
+      <ul>
+        <li>Conmutativa: u·v = v·u.</li>
+        <li>Linealidad: u·(v+w)=u·v+u·w.</li>
+        <li>Homogeneidad: c(u·v)=(cu)·v=u·(cv).</li>
+        <li>Positividad: v·v≥0, con igualdad si y solo si v=0.</li>
+      </ul>
+
+      <h4>Proyección ortogonal</h4>
+      <p>La proyección de v sobre u representa la parte de v que queda sobre la dirección de u:</p>
+      <div class="formula">proyᵤ(v) = (u · v / ||u||²) u</div>
+      <div class="formula">compᵤ(v) = (u · v / ||u||)</div>
+
+      <h4>Aplicaciones</h4>
+      <p>El producto escalar se utiliza para calcular trabajo mecánico, potencia instantánea, ángulos, proyecciones y condiciones de ortogonalidad. Por ejemplo:</p>
+      <div class="formula">W = F · d</div>
+      <div class="formula">P = F · v</div>
+    `,
     activities: [
       {
         title: "Actividad 1 de 6 · Signo del producto escalar",
@@ -146,6 +230,48 @@ const SECTIONS = {
   cross: {
     title: "Producto vectorial",
     short: "Vectorial",
+    theory: `
+      <h3>Teoría para estudio · Producto vectorial</h3>
+      <p>El producto vectorial es una operación entre dos vectores de R³ cuyo resultado es otro vector. Aparece naturalmente en problemas de rotación, momento de una fuerza, normales a superficies y cálculo de áreas.</p>
+
+      <h4>Motivación física</h4>
+      <p>En mecánica, el momento de una fuerza respecto de un punto se modela mediante:</p>
+      <div class="formula">M = r × F</div>
+      <p>El vector momento es perpendicular al plano determinado por r y F, y su sentido representa la tendencia de rotación.</p>
+
+      <h4>Definición geométrica</h4>
+      <p>El producto vectorial de dos vectores u y v es un vector w = u × v definido por:</p>
+      <div class="formula">||w|| = ||u|| ||v|| sen(θ)</div>
+      <p>Su dirección es perpendicular al plano determinado por u y v. Su sentido se determina mediante la regla de la mano derecha o regla del sacacorchos.</p>
+
+      <h4>Producto vectorial en coordenadas</h4>
+      <p>Si u=(u₁,u₂,u₃) y v=(v₁,v₂,v₃), entonces:</p>
+      <div class="formula">u × v = (u₂v₃-u₃v₂)i − (u₁v₃-u₃v₁)j + (u₁v₂-u₂v₁)k</div>
+      <p>También se puede calcular mediante un determinante simbólico:</p>
+      <div class="formula">u × v = | i&nbsp; j&nbsp; k ; u₁&nbsp;u₂&nbsp;u₃ ; v₁&nbsp;v₂&nbsp;v₃ |</div>
+
+      <h4>Propiedades geométricas</h4>
+      <ul>
+        <li>u×v es ortogonal tanto a u como a v.</li>
+        <li>||u×v|| = ||u|| ||v|| sen(θ).</li>
+        <li>u×v = 0 si y solo si u y v son paralelos o alguno es nulo.</li>
+        <li>||u×v|| representa el área del paralelogramo generado por u y v.</li>
+      </ul>
+
+      <h4>Propiedades algebraicas</h4>
+      <ul>
+        <li>Anticonmutatividad: u×v = −(v×u).</li>
+        <li>Distributividad: u×(v+w)=u×v+u×w.</li>
+        <li>Homogeneidad: c(u×v)=(cu)×v=u×(cv).</li>
+        <li>v×v=0.</li>
+      </ul>
+
+      <h4>Distancia de un punto a una recta</h4>
+      <p>Si una recta está determinada por los puntos X y R, y P es un punto exterior, se definen:</p>
+      <div class="formula">u = R − X, &nbsp;&nbsp; v = P − X</div>
+      <p>La distancia de P a la recta puede calcularse como:</p>
+      <div class="formula">d = ||u × v|| / ||u||</div>
+    `,
     activities: [
       {
         title: "Actividad 1 de 6 · Interpretación geométrica",
@@ -220,6 +346,36 @@ const SECTIONS = {
   mixed: {
     title: "Producto mixto",
     short: "Mixto",
+    theory: `
+      <h3>Teoría para estudio · Producto mixto</h3>
+      <p>El producto mixto combina el producto vectorial y el producto escalar. Dado tres vectores u, v y w en R³, se define como:</p>
+      <div class="formula">[u,v,w] = u · (v × w)</div>
+      <p>El resultado es un escalar.</p>
+
+      <h4>Interpretación geométrica</h4>
+      <p>El producto vectorial v×w genera un vector perpendicular al plano determinado por v y w. Su módulo representa el área del paralelogramo de base. Al hacer el producto escalar con u, se incorpora la altura orientada respecto de esa base.</p>
+      <div class="formula">V = |u · (v × w)|</div>
+      <p>Por lo tanto, el valor absoluto del producto mixto representa el volumen del paralelepípedo determinado por u, v y w.</p>
+
+      <h4>Coplanaridad</h4>
+      <p>Si los tres vectores son coplanares, el volumen del paralelepípedo es cero. Por eso:</p>
+      <div class="formula">u · (v × w) = 0 ⇔ u, v y w son coplanares</div>
+
+      <h4>Desarrollo algebraico</h4>
+      <p>El producto mixto puede calcularse mediante un determinante 3×3 formado con las componentes de los tres vectores:</p>
+      <div class="formula">u · (v × w) = det [ u ; v ; w ]</div>
+
+      <h4>Propiedad cíclica</h4>
+      <p>Las permutaciones cíclicas conservan el valor del producto mixto:</p>
+      <div class="formula">u · (v × w) = v · (w × u) = w · (u × v)</div>
+      <p>En cambio, al intercambiar dos vectores se cambia el signo.</p>
+
+      <h4>Regla mnemotécnica</h4>
+      <p>Recorrer los vectores en sentido cíclico conserva el signo del producto mixto. Recorrerlos en sentido contrario cambia el signo.</p>
+
+      <h4>Aplicaciones</h4>
+      <p>El producto mixto se utiliza para calcular volúmenes, determinar coplanaridad y analizar orientaciones en el espacio.</p>
+    `,
     activities: [
       {
         title: "Actividad 1 de 6 · Estructura del producto mixto",

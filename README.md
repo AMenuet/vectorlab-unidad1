@@ -1,4 +1,4 @@
-# VectorLab · Unidad 1: Vectores · Versión 2
+# VectorLab · Unidad 1: Vectores · Versión 3
 
 Estructura:
 - 4 secciones principales.
@@ -12,3 +12,8 @@ Estructura:
 
 Subir esta carpeta o el ZIP completo a Netlify Drop.
 El archivo principal es `index.html`.
+
+
+## Novedad versión 3
+
+Se agregó una sección de teoría para estudio en cada una de las cuatro partes, adaptada del manual de clase.

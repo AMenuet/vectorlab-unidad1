@@ -1,7 +1,7 @@
 const state = {
   mode: localStorage.getItem("vectorlab_mode_v2") || "class",
   section: "ops",
-  activity: { ops: 0, dot: 0, cross: 0, mixed: 0 },
+  activity: { ops: -1, dot: -1, cross: -1, mixed: -1 },
   done: JSON.parse(localStorage.getItem("vectorlab_done_v2") || "{}"),
   u: { x: 4, y: 2 },
   v: { x: 2, y: 3 },
@@ -116,12 +116,18 @@ function setSection(section){
 function showActivity(section, idx){
   state.activity[section] = idx;
   const total = 6;
+  const isTheory = idx === -1;
   const isQuiz = idx === 6;
   document.querySelectorAll(`#${section}Activities .activity`).forEach(el=>el.classList.remove("active"));
+  document.querySelectorAll(`#${section}Activities .theory-panel`).forEach(el=>el.classList.remove("active"));
   const quiz = $(`${section}Quiz`);
   quiz.classList.toggle("active", isQuiz);
 
-  if(!isQuiz){
+  if(isTheory){
+    const th = $(`${section}-theory`);
+    if(th) th.classList.add("active");
+    $("currentActivityName").textContent = "Teoría para estudio";
+  } else if(!isQuiz){
     const act = $(`${section}-activity-${idx}`);
     if(act) act.classList.add("active");
     $("currentActivityName").textContent = `Actividad ${idx+1} de ${total}`;
@@ -137,6 +143,11 @@ function renderMenus(){
     const list = $(`${section}List`);
     if(!list) return;
     list.innerHTML = `<h3>${SECTIONS[section].short}</h3>`;
+    const tbtn = document.createElement("button");
+    tbtn.textContent = "Teoría para estudio";
+    tbtn.className = (state.activity[section]===-1 ? "active " : "");
+    tbtn.addEventListener("click",()=>showActivity(section,-1));
+    list.appendChild(tbtn);
     for(let i=0;i<6;i++){
       const btn = document.createElement("button");
       btn.textContent = `Actividad ${i+1}`;
@@ -182,7 +193,14 @@ function createVisual(activity, section, idx){
 function renderActivities(){
   Object.entries(SECTIONS).forEach(([section, data])=>{
     const container = $(`${section}Activities`);
-    container.innerHTML = "";
+    container.innerHTML = `<div class="theory-panel" id="${section}-theory">
+      <div class="theory-header">
+        <span class="tag">Modo estudio</span>
+        <h2>Teoría de la sección</h2>
+        <p>Texto adaptado del manual de clase para consultar antes de resolver las actividades.</p>
+      </div>
+      <div class="theory-content">${data.theory || ""}</div>
+    </div>`;
     data.activities.forEach((act, idx)=>{
       const el = document.createElement("div");
       el.className = "activity";
