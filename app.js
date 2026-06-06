@@ -357,8 +357,6 @@ function crossSvg(){
     <line x1="210" y1="275" x2="560" y2="255" stroke="#111" stroke-width="4" marker-end="url(#arrBlack)"/>
     <line x1="210" y1="275" x2="345" y2="155" stroke="#334155" stroke-width="4" marker-end="url(#arrBlack)"/>
     <line x1="210" y1="275" x2="210" y2="70" stroke="#0b5cad" stroke-width="5" marker-end="url(#arrBlue)"/>
-
-    <!-- arco limpio entre u y v -->
     <path d="M 286 271 A 76 76 0 0 0 267 224" fill="none" stroke="#111" stroke-width="2.5"/>
     <text x="515" y="292" class="svg-label">u</text>
     <text x="352" y="160" class="svg-label">v</text>
@@ -388,26 +386,17 @@ function mixedSvg(){
       <marker id="arrMixGray" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#334155"></path></marker>
       <marker id="arrMixGreen" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#0f766e"></path></marker>
     </defs>
-
-    <!-- base generada por v y w -->
     <polygon points="140,300 430,300 530,210 240,210" fill="#eef2ff" stroke="#64748b" stroke-width="2"/>
-
-    <!-- tapa superior y caras del paralelepípedo -->
     <polygon points="180,170 470,170 570,80 280,80" fill="#e2e8f0" stroke="#64748b" stroke-width="2"/>
     <polygon points="140,300 180,170 470,170 430,300" fill="#f8fafc" stroke="#94a3b8" stroke-width="2"/>
     <polygon points="240,210 280,80 570,80 530,210" fill="#dbeafe" stroke="#94a3b8" stroke-width="2"/>
     <polygon points="430,300 470,170 570,80 530,210" fill="#dbeafe" stroke="#94a3b8" stroke-width="2"/>
-
-    <!-- vectores generadores -->
     <line x1="140" y1="300" x2="430" y2="300" stroke="#111" stroke-width="4" marker-end="url(#arrMixBlack)"/>
     <line x1="140" y1="300" x2="240" y2="210" stroke="#334155" stroke-width="4" marker-end="url(#arrMixGray)"/>
     <line x1="140" y1="300" x2="180" y2="170" stroke="#0f766e" stroke-width="4" marker-end="url(#arrMixGreen)"/>
-
-    <!-- altura auxiliar -->
     <line x1="180" y1="170" x2="205" y2="245" stroke="#94a3b8" stroke-dasharray="8 7" stroke-width="2.5"/>
     <line x1="205" y1="245" x2="228" y2="235" stroke="#94a3b8" stroke-width="2"/>
     <line x1="228" y1="235" x2="220" y2="216" stroke="#94a3b8" stroke-width="2"/>
-
     <text x="315" y="325" class="svg-label">v</text>
     <text x="188" y="235" class="svg-label">w</text>
     <text x="150" y="210" class="svg-label green">u</text>
@@ -514,7 +503,6 @@ function drawAngleArc(ctx, canvas, u, v, radius=58){
   while(diff <= -Math.PI) diff += 2*Math.PI;
   while(diff > Math.PI) diff -= 2*Math.PI;
 
-  // En canvas el eje y está invertido: se usa -ángulo.
   const start = -a1;
   const end = -(a1 + diff);
   const anticlockwise = diff > 0;
@@ -534,13 +522,10 @@ function drawRightAngleMarker(ctx, canvas, foot, u, size=12){
   if(m < 1e-9) return;
   const e1={x:u.x/m, y:u.y/m};
   const e2={x:-e1.y, y:e1.x};
-
-  // pequeño cuadrado orientado según la recta soporte de u
   const s=size/10;
   const pA = {x:foot.x + e1.x*s, y:foot.y + e1.y*s};
   const pB = {x:pA.x + e2.x*s, y:pA.y + e2.y*s};
   const pC = {x:foot.x + e2.x*s, y:foot.y + e2.y*s};
-
   const A=canvasPoint(canvas,pA), B=canvasPoint(canvas,pB), C=canvasPoint(canvas,pC);
   ctx.strokeStyle="#777"; ctx.lineWidth=2;
   ctx.beginPath(); ctx.moveTo(A.x,A.y); ctx.lineTo(B.x,B.y); ctx.lineTo(C.x,C.y); ctx.stroke();
@@ -571,7 +556,6 @@ function drawDotCanvas(canvas){
   drawArrow(ctx,canvas,O,v,"#334155",3,"v");
   drawArrow(ctx,canvas,O,proj,"#0b5cad",5,"proyᵤ(v)");
 
-  // perpendicular desde el extremo de v hacia la recta soporte de u
   const Vp=canvasPoint(canvas,v), Pp=canvasPoint(canvas,proj);
   ctx.strokeStyle="#777"; ctx.setLineDash([6,6]); ctx.lineWidth=2;
   ctx.beginPath(); ctx.moveTo(Vp.x,Vp.y); ctx.lineTo(Pp.x,Pp.y); ctx.stroke();
@@ -634,25 +618,25 @@ function setupCanvasDragging(){
 }
 
 
-function vectorMarkup(text){
-  if(text === undefined || text === null) return "";
-  let s = String(text);
+function escapeHtml(text){
+  return String(text ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
 
-  // No tocar contenido HTML ya marcado como span.v
-  // Vectorizamos símbolos sueltos: u, v, w, F, r, M.
-  // No vectorizamos d porque en la app también se usa mucho como distancia escalar.
+function vectorMarkup(text){
+  let s = escapeHtml(text);
+  // Vectorizamos símbolos sueltos. No vectorizamos d porque se usa como distancia escalar.
   const vectorTokens = ["u","v","w","F","r","M"];
   const pattern = new RegExp(`(^|[^A-Za-zÁÉÍÓÚáéíóúÑñ0-9_₀₁₂₃₄₅₆₇₈₉])(${vectorTokens.join("|")})(?![A-Za-zÁÉÍÓÚáéíóúÑñ0-9_₀₁₂₃₄₅₆₇₈₉])`, "g");
-
-  s = s.replace(pattern, (match, prefix, sym) => {
-    return `${prefix}<span class="v">${sym}</span>`;
-  });
-
-  return s;
+  return s.replace(pattern, (match, prefix, sym) => `${prefix}<span class="v">${sym}</span>`);
 }
 
 function applyVectorNotation(root=document.body){
-  // Versión 7: se vectorizan explícitamente consignas, pistas, soluciones y quiz con vectorMarkup().
+  // La teoría usa marcas explícitas. Las consignas, pistas, soluciones y quiz usan vectorMarkup().
   return;
 }
 
