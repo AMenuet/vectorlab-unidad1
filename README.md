@@ -1,4 +1,4 @@
-# VectorLab · Unidad 1: Vectores · Versión 3
+# VectorLab · Unidad 1: Vectores · Versión 5
 
 Estructura:
 - 4 secciones principales.
@@ -17,3 +17,13 @@ El archivo principal es `index.html`.
 ## Novedad versión 3
 
 Se agregó una sección de teoría para estudio en cada una de las cuatro partes, adaptada del manual de clase.
+
+
+## Novedad versión 4
+
+Se agregó notación vectorial visual con flecha superior para diferenciar vectores de escalares y componentes.
+
+
+## Novedad versión 5
+
+Se reemplazó la flecha superior por notación vectorial en negrita e itálica para mejorar legibilidad, especialmente en celular.

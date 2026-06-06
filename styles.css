@@ -585,3 +585,76 @@ body.class-mode .theory-content {
 body.class-mode .theory-panel .theory-header p::after {
   content: " En modo clase puede usarse como síntesis proyectable.";
 }
+
+
+/* Notación vectorial */
+.vec {
+  display: inline-block;
+  position: relative;
+  font-family: "Cambria Math", Georgia, serif;
+  font-style: italic;
+  font-weight: 800;
+  padding: 0 .08em;
+  margin: 0 .02em;
+  line-height: 1.15;
+}
+
+.vec::after {
+  content: "→";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -0.78em;
+  text-align: center;
+  font-size: .78em;
+  font-style: normal;
+  font-weight: 700;
+}
+
+.formula .vec {
+  margin-left: .08em;
+  margin-right: .08em;
+}
+
+.vec-note {
+  background: #fff7ed;
+  border: 1px solid #fed7aa;
+  color: #7c2d12;
+  border-radius: 14px;
+  padding: .7rem .85rem;
+  margin: .5rem 0 1rem;
+  font-weight: 700;
+}
+
+
+/* Versión 5: vectores en negrita e itálica, sin flecha superior */
+.vec {
+  display: inline !important;
+  position: static !important;
+  font-family: "Cambria Math", Georgia, serif;
+  font-style: italic;
+  font-weight: 900;
+  color: var(--blue);
+  padding: 0 .03em;
+  margin: 0 .02em;
+}
+
+.vec::after {
+  content: none !important;
+  display: none !important;
+}
+
+.formula .vec {
+  font-weight: 900;
+  color: #062f63;
+}
+
+.vector-convention {
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  color: #083b7a;
+  border-radius: 14px;
+  padding: .75rem .9rem;
+  margin: .75rem 0 1rem;
+  font-weight: 700;
+}
