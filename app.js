@@ -216,7 +216,7 @@ function renderActivities(){
             ${createVisual(act, section, idx)}
           </div>
           <div class="answer-card">
-            <p><strong>Consigna:</strong> ${act.prompt}</p>
+            <p><strong>Consigna:</strong> <span class="mathline">${vectorMarkup(act.prompt)}</span></p>
             ${answerInput(act, section, idx)}
             <div class="actions">
               <button class="primary" data-action="check" data-section="${section}" data-idx="${idx}">Verificar</button>
@@ -224,7 +224,7 @@ function renderActivities(){
               <button class="ghost show-solution" data-action="solution" data-section="${section}" data-idx="${idx}">Ver resolución</button>
             </div>
             <p class="feedback" id="feedback-${section}-${idx}"></p>
-            <div class="solution" id="solution-${section}-${idx}">${act.solution}</div>
+            <div class="solution" id="solution-${section}-${idx}">${vectorMarkup(act.solution)}</div>
           </div>
         </div>`;
       container.appendChild(el);
@@ -255,11 +255,11 @@ function renderQuizzes(){
     data.quiz.forEach((q, idx)=>{
       const box = document.createElement("div");
       box.className = "quiz-item";
-      box.innerHTML = `<h4>${idx+1}. ${q[0]}</h4><div class="quiz-options"></div><p class="quiz-feedback"></p>`;
+      box.innerHTML = `<h4>${idx+1}. ${vectorMarkup(q[0])}</h4><div class="quiz-options"></div><p class="quiz-feedback"></p>`;
       const opts = box.querySelector(".quiz-options");
       q[1].forEach((op,i)=>{
         const b = document.createElement("button");
-        b.textContent = op;
+        b.innerHTML = vectorMarkup(op);
         if(state.done[key(section,idx,"q")] && i===q[2]) b.classList.add("correct");
         b.addEventListener("click",()=>{
           opts.querySelectorAll("button").forEach((bb,j)=>{
@@ -269,11 +269,11 @@ function renderQuizzes(){
           });
           const fb = box.querySelector(".quiz-feedback");
           if(i===q[2]){
-            fb.textContent = "Correcto. " + q[3];
+            fb.innerHTML = vectorMarkup("Correcto. " + q[3]);
             fb.style.color = "var(--green)";
             markDone(section, idx, "q");
           } else {
-            fb.textContent = "Revisar. " + q[3];
+            fb.innerHTML = vectorMarkup("Revisar. " + q[3]);
             fb.style.color = "var(--red)";
           }
         });
@@ -286,7 +286,7 @@ function renderQuizzes(){
 
 function setFeedback(section, idx, text, ok=false){
   const el = $(`feedback-${section}-${idx}`);
-  el.textContent = text;
+  el.innerHTML = vectorMarkup(text);
   el.style.color = ok ? "var(--green)" : "var(--red)";
 }
 
@@ -326,7 +326,7 @@ function checkAnswer(section, idx){
 function showHint(section, idx){
   const act = SECTIONS[section].activities[idx];
   const el = $(`feedback-${section}-${idx}`);
-  el.textContent = "Pista: " + act.hint;
+  el.innerHTML = "Pista: " + vectorMarkup(act.hint);
   el.style.color = "var(--orange)";
 }
 
@@ -538,8 +538,25 @@ function setupCanvasDragging(){
 }
 
 
+function vectorMarkup(text){
+  if(text === undefined || text === null) return "";
+  let s = String(text);
+
+  // No tocar contenido HTML ya marcado como span.v
+  // Vectorizamos símbolos sueltos: u, v, w, F, r, M.
+  // No vectorizamos d porque en la app también se usa mucho como distancia escalar.
+  const vectorTokens = ["u","v","w","F","r","M"];
+  const pattern = new RegExp(`(^|[^A-Za-zÁÉÍÓÚáéíóúÑñ0-9_₀₁₂₃₄₅₆₇₈₉])(${vectorTokens.join("|")})(?![A-Za-zÁÉÍÓÚáéíóúÑñ0-9_₀₁₂₃₄₅₆₇₈₉])`, "g");
+
+  s = s.replace(pattern, (match, prefix, sym) => {
+    return `${prefix}<span class="v">${sym}</span>`;
+  });
+
+  return s;
+}
+
 function applyVectorNotation(root=document.body){
-  // Versión 6: la notación vectorial se marca explícitamente en data.js.
+  // Versión 7: se vectorizan explícitamente consignas, pistas, soluciones y quiz con vectorMarkup().
   return;
 }
 
