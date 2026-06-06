@@ -11,25 +11,25 @@ const SECTIONS = {
 
       <h4>Suma de vectores</h4>
       <p>Geométricamente, la suma puede construirse mediante la regla del triángulo o la regla del paralelogramo. Algebraicamente, si los vectores están expresados por componentes, la suma se realiza componente a componente:</p>
-      <div class="formula">u + v = (u₁ + v₁, u₂ + v₂)</div>
-      <div class="formula">u + v = (u₁ + v₁, u₂ + v₂, ..., uₙ + vₙ)</div>
+      <div class="formula"><span class="v">u</span> + <span class="v">v</span> = (u₁ + v₁, u₂ + v₂)</div>
+      <div class="formula"><span class="v">u</span> + <span class="v">v</span> = (u₁ + v₁, u₂ + v₂, ..., uₙ + vₙ)</div>
 
       <h4>Multiplicación por un escalar</h4>
       <p>Si c es un escalar y u es un vector, entonces cu es un vector cuyo módulo es |c|·||u||. Si c&gt;0 conserva el sentido de u; si c&lt;0 conserva la dirección pero invierte el sentido; si c=0 se obtiene el vector nulo.</p>
-      <div class="formula">cu = (cu₁, cu₂, ..., cuₙ)</div>
-      <div class="formula">||cu|| = |c| · ||u||</div>
+      <div class="formula">c<span class="v">u</span> = (cu₁, cu₂, ..., cuₙ)</div>
+      <div class="formula">||c<span class="v">u</span>|| = |c| · ||<span class="v">u</span>||</div>
 
       <h4>Módulo y vector unitario</h4>
       <p>El módulo o longitud de un vector se calcula a partir de sus componentes:</p>
       <div class="formula">||u|| = √(u₁² + u₂²)</div>
       <div class="formula">||u|| = √(u₁² + u₂² + ... + uₙ²)</div>
       <p>Si u≠0, el vector unitario en la dirección de u se obtiene dividiendo por su módulo:</p>
-      <div class="formula">û = u / ||u||</div>
+      <div class="formula">û = <span class="v">u</span> / ||<span class="v">u</span>||</div>
 
       <h4>Propiedades y descomposición canónica</h4>
       <p>La suma de vectores cumple propiedades como conmutatividad, asociatividad, existencia de neutro e inverso aditivo. La multiplicación por escalares cumple propiedades distributivas y de compatibilidad con el producto de escalares.</p>
       <p>En R³, todo vector puede escribirse como combinación de los versores fundamentales i, j y k:</p>
-      <div class="formula">u = (u₁,u₂,u₃) = u₁i + u₂j + u₃k</div>
+      <div class="formula"><span class="v">u</span> = (u₁,u₂,u₃) = u₁i + u₂j + u₃k</div>
 
       <h4>Vectores paralelos</h4>
       <p>Dos vectores son paralelos cuando sus componentes son proporcionales. En R³, para vectores no nulos:</p>
@@ -113,7 +113,7 @@ const SECTIONS = {
 
       <h4>Definición geométrica</h4>
       <p>Si u y v son vectores no nulos y θ es el ángulo entre ellos, se define:</p>
-      <div class="formula">u · v = ||u|| ||v|| cos(θ)</div>
+      <div class="formula"><span class="v">u</span> · <span class="v">v</span> = ||<span class="v">u</span>|| ||<span class="v">v</span>|| cos(θ)</div>
       <p>Esta definición no depende del sistema de coordenadas; por eso se dice que es una definición intrínseca.</p>
 
       <h4>Interpretación del signo</h4>
@@ -125,19 +125,19 @@ const SECTIONS = {
 
       <h4>Ortogonalidad</h4>
       <p>Dos vectores son ortogonales cuando el ángulo entre ellos es de 90°. A partir de la definición geométrica:</p>
-      <div class="formula">u ⟂ v ⇔ u · v = 0</div>
+      <div class="formula"><span class="v">u</span> ⟂ <span class="v">v</span> ⇔ <span class="v">u</span> · <span class="v">v</span> = 0</div>
 
       <h4>Módulo y ángulo</h4>
       <p>El producto escalar permite expresar el módulo de un vector como:</p>
-      <div class="formula">||u|| = √(u · u)</div>
+      <div class="formula">||<span class="v">u</span>|| = √(<span class="v">u</span> · <span class="v">u</span>)</div>
       <p>También permite calcular el ángulo entre dos vectores no nulos:</p>
-      <div class="formula">cos(θ) = (u · v) / (||u|| ||v||)</div>
+      <div class="formula">cos(θ) = (<span class="v">u</span> · <span class="v">v</span>) / (||<span class="v">u</span>|| ||<span class="v">v</span>||)</div>
 
       <h4>Producto escalar por componentes</h4>
       <p>En un sistema cartesiano ortogonal, el producto escalar puede calcularse sumando los productos de componentes homónimas:</p>
-      <div class="formula">u · v = u₁v₁ + u₂v₂</div>
-      <div class="formula">u · v = u₁v₁ + u₂v₂ + u₃v₃</div>
-      <div class="formula">u · v = Σ uᵢvᵢ</div>
+      <div class="formula"><span class="v">u</span> · <span class="v">v</span> = u₁v₁ + u₂v₂</div>
+      <div class="formula"><span class="v">u</span> · <span class="v">v</span> = u₁v₁ + u₂v₂ + u₃v₃</div>
+      <div class="formula"><span class="v">u</span> · <span class="v">v</span> = Σ uᵢvᵢ</div>
 
       <h4>Propiedades</h4>
       <ul>
@@ -149,13 +149,13 @@ const SECTIONS = {
 
       <h4>Proyección ortogonal</h4>
       <p>La proyección de v sobre u representa la parte de v que queda sobre la dirección de u:</p>
-      <div class="formula">proyᵤ(v) = (u · v / ||u||²) u</div>
-      <div class="formula">compᵤ(v) = (u · v / ||u||)</div>
+      <div class="formula">proyᵤ(<span class="v">v</span>) = (<span class="v">u</span> · <span class="v">v</span> / ||<span class="v">u</span>||²) <span class="v">u</span></div>
+      <div class="formula">compᵤ(<span class="v">v</span>) = (<span class="v">u</span> · <span class="v">v</span> / ||<span class="v">u</span>||)</div>
 
       <h4>Aplicaciones</h4>
       <p>El producto escalar se utiliza para calcular trabajo mecánico, potencia instantánea, ángulos, proyecciones y condiciones de ortogonalidad. Por ejemplo:</p>
-      <div class="formula">W = F · d</div>
-      <div class="formula">P = F · v</div>
+      <div class="formula">W = <span class="v">F</span> · <span class="v">d</span></div>
+      <div class="formula">P = <span class="v">F</span> · <span class="v">v</span></div>
     `,
     activities: [
       {
@@ -236,19 +236,19 @@ const SECTIONS = {
 
       <h4>Motivación física</h4>
       <p>En mecánica, el momento de una fuerza respecto de un punto se modela mediante:</p>
-      <div class="formula">M = r × F</div>
+      <div class="formula"><span class="v">M</span> = <span class="v">r</span> × <span class="v">F</span></div>
       <p>El vector momento es perpendicular al plano determinado por r y F, y su sentido representa la tendencia de rotación.</p>
 
       <h4>Definición geométrica</h4>
       <p>El producto vectorial de dos vectores u y v es un vector w = u × v definido por:</p>
-      <div class="formula">||w|| = ||u|| ||v|| sen(θ)</div>
+      <div class="formula">||<span class="v">w</span>|| = ||<span class="v">u</span>|| ||<span class="v">v</span>|| sen(θ)</div>
       <p>Su dirección es perpendicular al plano determinado por u y v. Su sentido se determina mediante la regla de la mano derecha o regla del sacacorchos.</p>
 
       <h4>Producto vectorial en coordenadas</h4>
       <p>Si u=(u₁,u₂,u₃) y v=(v₁,v₂,v₃), entonces:</p>
-      <div class="formula">u × v = (u₂v₃-u₃v₂)i − (u₁v₃-u₃v₁)j + (u₁v₂-u₂v₁)k</div>
+      <div class="formula"><span class="v">u</span> × <span class="v">v</span> = (u₂v₃-u₃v₂)i − (u₁v₃-u₃v₁)j + (u₁v₂-u₂v₁)k</div>
       <p>También se puede calcular mediante un determinante simbólico:</p>
-      <div class="formula">u × v = | i&nbsp; j&nbsp; k ; u₁&nbsp;u₂&nbsp;u₃ ; v₁&nbsp;v₂&nbsp;v₃ |</div>
+      <div class="formula"><span class="v">u</span> × <span class="v">v</span> = | i&nbsp; j&nbsp; k ; u₁&nbsp;u₂&nbsp;u₃ ; v₁&nbsp;v₂&nbsp;v₃ |</div>
 
       <h4>Propiedades geométricas</h4>
       <ul>
@@ -268,9 +268,9 @@ const SECTIONS = {
 
       <h4>Distancia de un punto a una recta</h4>
       <p>Si una recta está determinada por los puntos X y R, y P es un punto exterior, se definen:</p>
-      <div class="formula">u = R − X, &nbsp;&nbsp; v = P − X</div>
+      <div class="formula"><span class="v">u</span> = R − X, &nbsp;&nbsp; <span class="v">v</span> = P − X</div>
       <p>La distancia de P a la recta puede calcularse como:</p>
-      <div class="formula">d = ||u × v|| / ||u||</div>
+      <div class="formula">d = ||<span class="v">u</span> × <span class="v">v</span>|| / ||<span class="v">u</span>||</div>
     `,
     activities: [
       {
@@ -349,25 +349,25 @@ const SECTIONS = {
     theory: `
       <h3>Teoría para estudio · Producto mixto</h3>
       <p>El producto mixto combina el producto vectorial y el producto escalar. Dado tres vectores u, v y w en R³, se define como:</p>
-      <div class="formula">[u,v,w] = u · (v × w)</div>
+      <div class="formula">[<span class="v">u</span>,<span class="v">v</span>,<span class="v">w</span>] = <span class="v">u</span> · (<span class="v">v</span> × <span class="v">w</span>)</div>
       <p>El resultado es un escalar.</p>
 
       <h4>Interpretación geométrica</h4>
       <p>El producto vectorial v×w genera un vector perpendicular al plano determinado por v y w. Su módulo representa el área del paralelogramo de base. Al hacer el producto escalar con u, se incorpora la altura orientada respecto de esa base.</p>
-      <div class="formula">V = |u · (v × w)|</div>
+      <div class="formula">V = |<span class="v">u</span> · (<span class="v">v</span> × <span class="v">w</span>)|</div>
       <p>Por lo tanto, el valor absoluto del producto mixto representa el volumen del paralelepípedo determinado por u, v y w.</p>
 
       <h4>Coplanaridad</h4>
       <p>Si los tres vectores son coplanares, el volumen del paralelepípedo es cero. Por eso:</p>
-      <div class="formula">u · (v × w) = 0 ⇔ u, v y w son coplanares</div>
+      <div class="formula"><span class="v">u</span> · (<span class="v">v</span> × <span class="v">w</span>) = 0 ⇔ <span class="v">u</span>, <span class="v">v</span> y <span class="v">w</span> son coplanares</div>
 
       <h4>Desarrollo algebraico</h4>
       <p>El producto mixto puede calcularse mediante un determinante 3×3 formado con las componentes de los tres vectores:</p>
-      <div class="formula">u · (v × w) = det [ u ; v ; w ]</div>
+      <div class="formula"><span class="v">u</span> · (<span class="v">v</span> × <span class="v">w</span>) = det [ <span class="v">u</span> ; <span class="v">v</span> ; <span class="v">w</span> ]</div>
 
       <h4>Propiedad cíclica</h4>
       <p>Las permutaciones cíclicas conservan el valor del producto mixto:</p>
-      <div class="formula">u · (v × w) = v · (w × u) = w · (u × v)</div>
+      <div class="formula"><span class="v">u</span> · (<span class="v">v</span> × <span class="v">w</span>) = <span class="v">v</span> · (<span class="v">w</span> × <span class="v">u</span>) = <span class="v">w</span> · (<span class="v">u</span> × <span class="v">v</span>)</div>
       <p>En cambio, al intercambiar dos vectores se cambia el signo.</p>
 
       <h4>Regla mnemotécnica</h4>

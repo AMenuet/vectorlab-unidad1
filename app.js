@@ -200,7 +200,7 @@ function renderActivities(){
         <h2>Teoría de la sección</h2>
         <p>Texto adaptado del manual de clase para consultar antes de resolver las actividades.</p>
       </div>
-      <div class="vector-convention">Convención de notación: los vectores se muestran en <span class="vec">u</span>, <span class="vec">v</span>, <span class="vec">w</span> en negrita e itálica; las componentes se escriben como u₁, u₂, v₁, v₂.</div>
+      <div class="vector-convention">Convención de notación: los vectores se muestran en <span class="v">u</span>, <span class="v">v</span>, <span class="v">w</span> en negrita e itálica; las componentes se escriben como u₁, u₂, v₁, v₂.</div>
       <div class="theory-content">${data.theory || ""}</div>
     </div>`;
     data.activities.forEach((act, idx)=>{
@@ -539,50 +539,10 @@ function setupCanvasDragging(){
 
 
 function applyVectorNotation(root=document.body){
-  const skipTags = new Set(["SCRIPT","STYLE","TEXTAREA","INPUT","SELECT","OPTION","CANVAS","SVG"]);
-  const vectorSymbols = new Set(["u","v","w","F","d","r","M"]);
-
-  function isBoundary(ch){
-    if(!ch) return true;
-    // letters, digits and subscript digits mean it is not a standalone vector symbol
-    return !(/[A-Za-zÁÉÍÓÚáéíóúÑñ0-9₀₁₂₃₄₅₆₇₈₉_]/.test(ch));
-  }
-
-  function processTextNode(node){
-    const text = node.nodeValue;
-    let changed = false;
-    const frag = document.createDocumentFragment();
-
-    for(let i=0; i<text.length; i++){
-      const ch = text[i];
-      const prev = text[i-1] || "";
-      const next = text[i+1] || "";
-
-      if(vectorSymbols.has(ch) && isBoundary(prev) && isBoundary(next)){
-        const span = document.createElement("span");
-        span.className = "vec";
-        span.textContent = ch;
-        frag.appendChild(span);
-        changed = true;
-      } else {
-        frag.appendChild(document.createTextNode(ch));
-      }
-    }
-
-    if(changed) node.parentNode.replaceChild(frag, node);
-  }
-
-  function walk(node){
-    if(node.nodeType === Node.ELEMENT_NODE){
-      if(skipTags.has(node.tagName) || node.classList.contains("vec")) return;
-      Array.from(node.childNodes).forEach(walk);
-    } else if(node.nodeType === Node.TEXT_NODE){
-      processTextNode(node);
-    }
-  }
-
-  walk(root);
+  // Versión 6: la notación vectorial se marca explícitamente en data.js.
+  return;
 }
+
 function init(){
   renderActivities();
   renderQuizzes();

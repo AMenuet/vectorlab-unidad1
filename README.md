@@ -1,4 +1,4 @@
-# VectorLab · Unidad 1: Vectores · Versión 5
+# VectorLab · Unidad 1: Vectores · Versión 6
 
 Estructura:
 - 4 secciones principales.
@@ -27,3 +27,8 @@ Se agregó notación vectorial visual con flecha superior para diferenciar vecto
 ## Novedad versión 5
 
 Se reemplazó la flecha superior por notación vectorial en negrita e itálica para mejorar legibilidad, especialmente en celular.
+
+
+## Novedad versión 6
+
+Se marcaron explícitamente los vectores en las fórmulas principales de teoría, usando negrita e itálica. Esto evita depender de una conversión automática de JavaScript.
